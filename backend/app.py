@@ -46,7 +46,7 @@ def transform(text):
 
 # ====================== METRICS DATA ======================
 metrics_data = {
-    "Model": ["LR", "MNB", "SVC"],
+    "Model": ["LR", "MNB", "LinearLinearSVC"],
     "Test Accuracy": [0.978, 0.923, 0.985],
     "Test F1-Score": [0.978, 0.920, 0.985],
     "CV Mean Accuracy": [0.979, 0.924, 0.987],
@@ -57,7 +57,7 @@ metrics_df = pd.DataFrame(metrics_data)
 # ====================== SIDEBAR ======================
 with st.sidebar:
     st.title("📊 Model Performance")
-    st.markdown("### Best Model: **SVC**")
+    st.markdown("### Best Model: **LinearSVC**")
     
     # Styled DataFrame
     styled_df = metrics_df.style\
@@ -82,8 +82,8 @@ with st.sidebar:
 
     st.info("""
             Three machine learning classifiers—Logistic Regression, Multinomial Naive Bayes, 
-            and LinearSVC—were evaluated using 5-fold stratified cross-validation and an independent test set. 
-            Among the evaluated models, LinearSVC achieved the best overall performance, with a mean cross-validation 
+            and LinearLinearSVC—were evaluated using 5-fold stratified cross-validation and an independent test set. 
+            Among the evaluated models, LinearLinearSVC achieved the best overall performance, with a mean cross-validation 
             accuracy of 98.76% (±0.05%) and a test accuracy of 98.57%. 
             It also obtained the highest precision (98.46%), recall (98.57%), and F1-score (98.51%), 
             demonstrating strong predictive performance and consistent generalization to unseen data.
@@ -95,7 +95,7 @@ st.title("📰 Fake News Detector")
 st.subheader("Detect Real vs Fake News using Machine Learning")
 
 st.markdown("""
-This tool uses **TF-IDF vectorization** + **Support Vector Classifier (SVC)** 
+This tool uses **TF-IDF vectorization** + **Support Vector Classifier (LinearSVC)** 
 to determine whether a news article is likely **real** or **fake**.
 """)
 
@@ -115,12 +115,12 @@ with col2:
     st.markdown("""
     1. Text is cleaned and lemmatized
     2. Converted to TF-IDF features
-    3. Fed into the trained SVC model
+    3. Fed into the trained LinearSVC model
     4. Prediction with confidence score
     """)
     
     st.markdown("---")
-    st.caption("Best Model: :green[SVC (98.57% Test Accuracy)]")
+    st.caption("Best Model: :green[LinearSVC (98.57% Test Accuracy)]")
 
 # Predict Button
 if st.button(" Predict", type="primary", use_container_width=True):
