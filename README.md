@@ -1,4 +1,4 @@
-[Link for Sales Price Prediction](https://salespp.streamlit.app/)
+[Link for Fake News Prediction](https://fakenewspred.streamlit.app/)
 
 
 ``
